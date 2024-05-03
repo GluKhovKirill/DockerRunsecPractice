@@ -1,0 +1,19 @@
+services:
+  runc:
+    container_name: runc
+    build:
+      context: ./src/
+    restart: always
+    ports:
+      - "${PORT}:8080"
+    env_file: .env
+  mysql_db:
+    image: mysql:8
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+
