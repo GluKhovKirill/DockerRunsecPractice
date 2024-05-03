@@ -1,31 +1,13 @@
 from flask import Flask
 from flask import *
-import bd
-import sqlite3
 from flask import render_template
 import quires
 
 
 app = Flask(__name__)
-HOST = '127.0.0.1'
+HOST = '0.0.0.0'
 PORT = 8080
 
-mybd = sqlite3.connect('users.db', check_same_thread=False)
-
-nic = ''
-age = 0
-
-def add_user(username: str, age: int) -> bool:
-    return True
-
-def get_user_age(username: str) -> int:
-    return 
-
-def create_db():
-    pass
-
-def create_table():
-    pass
 
 @app.route('/user', methods=['POST', 'GET'])
 def user():
